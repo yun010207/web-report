@@ -1,3 +1,7 @@
+<?php 
+	include '로그인 상태.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,16 +127,30 @@
 		</form>
 	</div>
 	<div id="member"><!--좌측 회원 칸-->
-		<legend>
-			사이트를 이용하려면<br>
-			회원가입이 필요합니다.
-			<form method="post" action="로그인 화면.php">
-				<input type="submit" name="로그인" value="로그인">
-			</form>
-			<form method="post" action="회원가입 화면.php">
-				<input type="submit" name="회원가입" value="회원가입">
-			</form>
-		</legend>
+		<?php
+			if($is_login) {
+				echo '
+				<form method="post" action="로그아웃.php">
+					<input type="submit" value="로그아웃">
+				</form>
+				';
+			}
+			else {
+				echo '
+				<legend>
+					사이트를 이용하려면<br>
+					회원가입이 필요합니다.
+					<form method="post" action="로그인 화면.php">
+						<input type="submit" name="로그인" value="로그인">
+					</form>
+					<form method="post" action="회원가입 화면.php">
+						<input type="submit" name="회원가입" value="회원가입">
+					</form>
+				</legend>
+				';
+			}
+		?>
+		
 	</div>
 	<div id="advertisement">
 		<div class="horizontal-advertisement">
