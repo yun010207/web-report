@@ -4,20 +4,11 @@
     $id = $_POST['id'];
     $pass = $_POST['password'];
 
-    $sql = "select * from member_tbl";
+    $sql = "select * from member_tbl where id = '$id' and password='$pass'";
     $result = mysqli_query($connect, $sql);
 
-    $signin = false;
-    $i = 0;
-    $size = mysqli_num_rows($result);
-    while($i++ < $size) {
-        $row = mysqli_fetch_array($result);
-        if ($row['id'] == $id && $row['password'] == $pass) {
-            $signin = true;
-            break;
-        }
-    }
-    if($signin == true) {
+    
+    if($result) {
         $_SESSION['username'] = time();
         echo "<script>location.href='동의대 구인 사이트.php'</script>";
     }
