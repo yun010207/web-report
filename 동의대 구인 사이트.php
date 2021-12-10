@@ -93,16 +93,36 @@
 			공지
 		</div>
 		<div class="board" name="help-board">
-			<a href="게시판.php">도움 요청 게시판</a>
+			<?php 
+				if(!$is_login) 
+					echo '<a href="로그인 화면.php">도움 요청 게시판</a>';
+				else 
+					echo '<a href="게시판.php">도움 요청 게시판</a>';
+			?>
 		</div>
 		<div class="board" name="team-board">
-			<a href="게시판.php">팀플 구인 게시판</a>
+			<?php 
+				if(!$is_login) 
+					echo '<a href="로그인 화면.php">팀플 구인 게시판</a>';
+				else 
+					echo '<a href="게시판.php">팀플 구인 게시판</a>';
+			?>
 		</div>
 		<div class="board" name="taxi-board">
-			<a href="게시판.php">택시 합승 게시판</a>
+			<?php 
+				if(!$is_login) 
+					echo '<a href="로그인 화면.php">택시 합승 게시판</a>';
+				else 
+					echo '<a href="게시판.php">택시 합승 게시판</a>';
+			?>
 		</div>
 		<div class="board" name="survey-board">
-			<a href="게시판.php">설문 조사 게시판</a>
+			<?php 
+				if(!$is_login) 
+					echo '<a href="로그인 화면.php">설문 조사 게시판</a>';
+				else 
+					echo '<a href="게시판.php">설문 조사 게시판</a>';
+			?>
 		</div>
 	</div>
 	<div id="depart">

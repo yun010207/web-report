@@ -2,6 +2,7 @@
 	include '로그인 상태.php';
 	include '고정 화면.php';
 	$kind = "도움";
+	$title = "test2";
 ?>
 
 <!DOCTYPE html>
@@ -26,20 +27,11 @@
 </head>
 <body>
 	<div id="center">
-		<form method="post" action="글쓰기.php">
-			<input type="submit" value="글쓰기">
-		</form>
 		<?php
-			$sql = "select * from board where kind = '$kind'";
+			$sql = "select * from board where kind = '$kind' and title = '$title'";
 			$result = mysqli_query($connect, $sql);
-			$num = mysqli_num_rows($result);
-			for($i = 0; $i < $num; $i++) {
-				$row = mysqli_fetch_array($result);
-				echo "<a href='보드.php'>";
-				echo $row['title'];
-				echo "</a>";
-				echo "<br>";
-			}
+			$row = mysqli_fetch_array($result);
+			echo nl2br($row['content']);
 		?>
 	</div>
 </body>

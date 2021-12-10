@@ -9,7 +9,8 @@
 
     $num = mysqli_num_rows($result);
     if($num == 1) {
-        $_SESSION['username'] = $id;
+       $_SESSION['username'] = time();
+       $_SESSION['userid'] = $id;
         echo "<script>location.href='동의대 구인 사이트.php'</script>";
     }
     else {
