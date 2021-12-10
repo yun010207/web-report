@@ -8,7 +8,9 @@
 	$sex = $_POST['sex'];
 	$depart = $_POST['depart'];
 	$student_id = $_POST['student_id'];
+	$sql = "select * from member_tbl";
 
+	$result = mysqli_query($connect, $sql);
 	$ok = true;
 	if ($id == NULL
 		or $name == NULL
@@ -19,6 +21,7 @@
 		or $depart == NULL
 		or $student_id == NULL) {
 		echo "<script>alert('모든 정보를 입력하세요.');</script>";
+		echo "<script>location.href='회원가입 화면.php'</script>";
 	}
 	else {
 		$i = 0;
@@ -47,8 +50,8 @@
 			}
 		}
 		if ($ok == true) {	
-			$sql = "insert into member_tbl values('{$id}', '{$name}' , '{$password}',
-			  '{$phone}', '{$sex}', '{$depart}', '{$student_id}')";
+			$sql = "insert into member_tbl values('$student_id', '$id',
+			 '$name', '$password', '$phone', '$sex', '$depart')";
 
 			$result = mysqli_query($connect, $sql);
 
@@ -58,7 +61,7 @@
 			echo "<script>location.href='회원가입 화면.php'</script>";
 		}
 	}
-    mysqli_close();
+    mysqli_close($result);
 	/*
 	$i = 0;
 	$size = mysqli_num_rows($result);

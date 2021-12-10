@@ -7,9 +7,9 @@
     $sql = "select * from member_tbl where id = '$id' and password='$pass'";
     $result = mysqli_query($connect, $sql);
 
-    
-    if($result) {
-        $_SESSION['username'] = time();
+    $num = mysqli_num_rows($result);
+    if($num == 1) {
+        $_SESSION['username'] = $id;
         echo "<script>location.href='동의대 구인 사이트.php'</script>";
     }
     else {

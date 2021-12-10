@@ -38,7 +38,7 @@
 					<tr>
 						<td align="right"> 핸드폰(' - ' 제외) : </td>
 						<td>
-							<input type="text" size=20 maxlength="10" name="phone">
+							<input type="text" size=20 maxlength="11" name="phone">
 						</td>
 
 						<td align="right"> 성별 : </td>
