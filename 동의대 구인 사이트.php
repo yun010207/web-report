@@ -1,5 +1,4 @@
 <?php 
-	include '로그인 상태.php';
 	include '고정 화면.php';
 ?>
 
@@ -24,7 +23,7 @@
 			margin: 10px;
 			position: absolute;
 			right: 0%;
-			top: 990px;
+			top: 1000px;
 			width: 22%;
 			height: 800px;
 			margin: 10px;
@@ -33,6 +32,10 @@
 	</style>
 	<!--메인 블럭-->
 	<style>
+		.board a {
+			text-decoration: none;
+			color: #026a5d;
+		}
 		#center{
 			position: absolute;
 			top: 270px;
@@ -51,7 +54,7 @@
 			right: 0%;
 			top: 270px;
 			width: 22%;
-			height: 700px;
+			height: 715px;
 			margin: 10px;
 			background: rgb(233,196,196);
 		}
@@ -69,6 +72,9 @@
 			height: 2%;
 			background: rgb(196,223,181);
 		}
+		#bhead {
+			height: 6%;
+		}
 		.board{
 			display: inline-block;
 			margin: 10px;
@@ -76,8 +82,11 @@
 			height: 47%;
 			background: rgb(196,223,181);
 		}
+		#depart a {
+			text-decoration: none;
+			color: #026a5d;
+		}
 	</style>
-
 </head>
 <body>
 	<div id="advertisement">
@@ -94,39 +103,164 @@
 		</div>
 		<div class="board" name="help-board">
 			<?php 
-				if(!$is_login) 
-					echo '<a href="로그인 화면.php">도움 요청 게시판</a>';
-				else 
-					echo '<a href="게시판.php">도움 요청 게시판</a>';
+				if(isset($_SESSION['username'])) {
+				echo "<div id='bhead'><b><a href='도움 변경.php'>도움 요청 게시판</a></b></div><hr>";
+					$enter = '보드.php';
+				}
+				else {
+				echo "<div id='bhead'><b><a href='로그인 화면.php'>도움 요청 게시판</a></b></div><hr>";
+					$enter = '로그인 화면.php';
+				}
+				$sql = "select * from board where kind = '도움' order by number desc";
+				$result = mysqli_query($connect, $sql);
+				$num = mysqli_num_rows($result);
+				for($i = 0; $i < $num; $i++) {
+					$row = mysqli_fetch_array($result);
+					echo "<a href='$enter?num=";
+					echo $row['number'];
+					echo "'>";
+					echo $row['title'];
+					echo "</a>";
+					echo "<hr>";
+				}
+				for (; $i < 17; $i++) {
+					echo "<a href='#'>&nbsp</a>";
+					echo "<hr>";
+				}
 			?>
 		</div>
 		<div class="board" name="team-board">
 			<?php 
-				if(!$is_login) 
-					echo '<a href="로그인 화면.php">팀플 구인 게시판</a>';
-				else 
-					echo '<a href="게시판.php">팀플 구인 게시판</a>';
+				if(isset($_SESSION['username'])) {
+				echo "<div id='bhead'><b><a href='팀플 변경.php'>팀플 모집 게시판</a></b></div><hr>";
+					$enter = '보드.php';
+				}
+				else {
+				echo "<div id='bhead'><b><a href='로그인 화면.php'>팀플 모집 게시판</a></b></div><hr>";
+					$enter = '로그인 화면.php';
+				}
+				$sql = "select * from board where kind = '팀플' order by number desc";
+				$result = mysqli_query($connect, $sql);
+				$num = mysqli_num_rows($result);
+				for($i = 0; $i < $num; $i++) {
+					$row = mysqli_fetch_array($result);
+					echo "<a href='$enter?num=";
+					echo $row['number'];
+					echo "'>";
+					echo $row['title'];
+					echo "</a>";
+					echo "<hr>";
+				}
+				for (; $i < 17; $i++) {
+					echo "<a href='#'>&nbsp</a>";
+					echo "<hr>";
+				}
 			?>
 		</div>
 		<div class="board" name="taxi-board">
 			<?php 
-				if(!$is_login) 
-					echo '<a href="로그인 화면.php">택시 합승 게시판</a>';
-				else 
-					echo '<a href="게시판.php">택시 합승 게시판</a>';
+				if(isset($_SESSION['username'])) {
+				echo "<div id='bhead'><b><a href='택시 변경.php'>택시 합승 게시판</a></b></div><hr>";
+					$enter = '보드.php';
+				}
+				else {
+				echo "<div id='bhead'><b><a href='로그인 화면.php'>택시 합승 게시판</a></b></div><hr>";
+					$enter = '로그인 화면.php';
+				}
+				$sql = "select * from board where kind = '택시' order by number desc";
+				$result = mysqli_query($connect, $sql);
+				$num = mysqli_num_rows($result);
+				for($i = 0; $i < $num; $i++) {
+					$row = mysqli_fetch_array($result);
+					echo "<a href='$enter?num=";
+					echo $row['number'];
+					echo "'>";
+					echo $row['title'];
+					echo "</a>";
+					echo "<hr>";
+				}
+				for (; $i < 17; $i++) {
+					echo "<a href='#'>&nbsp</a>";
+					echo "<hr>";
+				}
 			?>
 		</div>
 		<div class="board" name="survey-board">
 			<?php 
-				if(!$is_login) 
-					echo '<a href="로그인 화면.php">설문 조사 게시판</a>';
-				else 
-					echo '<a href="게시판.php">설문 조사 게시판</a>';
+				if(isset($_SESSION['username'])) {
+				echo "<div id='bhead'><b><a href='설문 변경.php'>설문 조사 게시판</a></b></div><hr>";
+					$enter = '보드.php';
+				}
+				else {
+				echo "<div id='bhead'><b><a href='로그인 화면.php'>설문 조사 게시판</a></b></div><hr>";
+					$enter = '로그인 화면.php';
+				}
+
+				$sql = "select * from board where kind = '설문' order by number desc";
+				$result = mysqli_query($connect, $sql);
+				$num = mysqli_num_rows($result);
+				for($i = 0; $i < $num; $i++) {
+					$row = mysqli_fetch_array($result);
+					echo "<a href='$enter?num=";
+					echo $row['number'];
+					echo "'>";
+					echo $row['title'];
+					echo "</a>";
+					echo "<hr>";
+				}
+				for (; $i < 17; $i++) {
+					echo "<a href='#'>&nbsp</a>";
+					echo "<hr>";
+				}
 			?>
 		</div>
 	</div>
 	<div id="depart">
-		학과 게시판 블럭
+			<?php 
+				$i=0;
+				if(isset($_SESSION['username'])) {
+				echo "<div id='bhead'><b><a href='학과 변경.php'>학과 게시판</a></b></div><hr>";
+					$enter = '보드.php';
+					$id = $_SESSION['username'];
+					$dpsql = "select * from member_tbl where id = '$id'";
+					$dpresult = mysqli_query($connect, $dpsql);
+					$dprow = mysqli_fetch_array($dpresult);
+					$depart = $dprow['depart'];
+
+					$sql = "select * from board where kind = '학과' order by number desc";
+					$result = mysqli_query($connect, $sql);
+					$num = mysqli_num_rows($result);
+					for(; $i < $num; $i++) {
+						$row = mysqli_fetch_array($result);
+						$wrtid = $row['writer'];
+						$dpsql2 = "select * from member_tbl where id = '$wrtid'";
+						$dpresult2 = mysqli_query($connect, $dpsql2);
+						$dprow = mysqli_fetch_array($dpresult2);
+						$wrtdepart = $dprow['depart'];
+						if ($depart == $wrtdepart) {
+
+							echo "<a href='$enter?num=";
+							echo $row['number'];
+							echo "'>";
+							echo $row['title'];
+							echo "</a>";
+							echo "<hr>";
+						}
+						else {
+							continue;
+						}
+					}
+				}
+				else {
+				echo "<div id='bhead'><b><a href='로그인 화면.php'>학과 게시판</a></b></div><hr>";
+					$enter = '로그인 화면.php';
+				}
+				for (; $i < 17; $i++) {
+					echo "<a href='#'>&nbsp</a>";
+					echo "<hr>";
+				}
+
+			?>
 	</div>
 </body>
 </html>

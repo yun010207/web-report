@@ -1,5 +1,5 @@
 <?php
-    include '로그인 상태.php';
+    include 'mysql.php';
 
     $id = $_POST['id'];
     $pass = $_POST['password'];
@@ -9,8 +9,7 @@
 
     $num = mysqli_num_rows($result);
     if($num == 1) {
-       $_SESSION['username'] = time();
-       $_SESSION['userid'] = $id;
+        $_SESSION['username'] = $id;
         echo "<script>location.href='동의대 구인 사이트.php'</script>";
     }
     else {

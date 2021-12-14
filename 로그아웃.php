@@ -1,5 +1,6 @@
 <?php
-    include '로그인 상태.php';
-    $_SESSION['username'] = "";
+    include 'mysql.php';
+    session_unset();
+    session_destroy();
     echo "<script>location.href='동의대 구인 사이트.php'</script>";
 ?>

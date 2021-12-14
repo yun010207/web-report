@@ -1,7 +1,5 @@
 <?php 
-	include '로그인 상태.php';
 	include '고정 화면.php';
-	$kind = "도움";
 ?>
 
 <!DOCTYPE html>
@@ -28,17 +26,49 @@
 	<div id="center">
 		<form method="post" action="글쓰기.php">
 			<input type="submit" value="글쓰기">
+			<hr>
 		</form>
 		<?php
-			$sql = "select * from board where kind = '$kind'";
-			$result = mysqli_query($connect, $sql);
-			$num = mysqli_num_rows($result);
-			for($i = 0; $i < $num; $i++) {
-				$row = mysqli_fetch_array($result);
-				echo "<a href='보드.php'>";
-				echo $row['title'];
-				echo "</a>";
-				echo "<br>";
+			$kind = $_SESSION['kind'];
+			if ($kind == '학과') {
+				$dpsql = "select * from member_tbl where id = '$id'";
+				$dpresult = mysqli_query($connect, $dpsql);
+				$dprow = mysqli_fetch_array($dpresult);
+				$depart = $dprow['depart'];
+
+				$sql = "select * from board where kind = '$kind' order by number desc";
+				$result = mysqli_query($connect, $sql);
+				$num = mysqli_num_rows($result);
+				for($i = 0; $i < $num; $i++) {
+					$row = mysqli_fetch_array($result);
+					$wrtid = $row['writer'];
+					$dpsql2 = "select * from member_tbl where id = '$wrtid'";
+					$dpresult2 = mysqli_query($connect, $dpsql2);
+					$dprow = mysqli_fetch_array($dpresult2);
+					$wrtdepart = $dprow['depart'];
+					if ($depart == $wrtdepart) {
+					echo '<a href="보드.php?num=';
+					echo $row['number'];
+					echo '">';
+					echo $row['title'];
+					echo "</a>";
+					echo "<hr>";
+					}
+				}
+			}
+			else {
+				$sql = "select * from board where kind = '$kind' order by number desc";
+				$result = mysqli_query($connect, $sql);
+				$num = mysqli_num_rows($result);
+				for($i = 0; $i < $num; $i++) {
+					$row = mysqli_fetch_array($result);
+					echo '<a href="보드.php?num=';
+					echo $row['number'];
+					echo '">';
+					echo $row['title'];
+					echo "</a>";
+					echo "<hr>";
+				}
 			}
 		?>
 	</div>
