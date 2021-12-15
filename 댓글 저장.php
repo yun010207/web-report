@@ -24,7 +24,7 @@
 
 	$sql = "update board set comment = comment + 1";
 	$result = mysqli_query($connect, $sql);
-	}
 
 	echo "<script>location.href='보드.php'</script>";
+	}
 ?>

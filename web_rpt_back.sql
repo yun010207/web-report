@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.21-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.22-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: web_rpt
 -- ------------------------------------------------------
--- Server version	10.4.21-MariaDB
+-- Server version	10.4.22-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,7 +42,7 @@ CREATE TABLE `board` (
 
 LOCK TABLES `board` WRITE;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT INTO `board` VALUES ('도움','yun010207','도움1-1','테스트\r\n\r\n\r\n테스트     테스트 여러번 띄움\r\n\r\n\r\n','2021-12-12 19:18:35',279,0,17,0),('도움','okm9874','테스트 2','ㅈㄷㄱㄷㅈ\r\n\r\n\r\nㅈㄷㅇㄹㅈ       ㅈ\r\n','2021-12-12 19:22:41',241,0,16,1),('도움','yun010207','테스트 3 도움','ㅇㄴㄹ ㄴ\r\n\r\n\r\n\r\nㅇㅇㅇㅇ      \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nㅇㅇㄴㄹㄴ       ㄴㄴ','2021-12-13 04:28:07',96,0,5,2),('팀플','yun010207','팀플 테스트1','ㄴㅁㅇㄹㄴㅁㅇㄹ','2021-12-13 08:49:06',59,0,4,3),('설문','okm9874','설문 테스트1','ㄴ ㄴㅇㄴ       ㄴㅇㄹㄴㅁ','2021-12-13 11:39:40',6,0,4,4),('택시','yun010207','택시 합승 게시판 테스트1','ㄷㄷㄷㄷ\r\n\r\n\r\nㄷㄷㄷㄷ\r\n\r\n\r\nㄷ    ㄷ\r\n','2021-12-13 12:10:40',1,0,4,5),('학과','yun010207','학과 테스트1','ㅈㄱㄷㅈ','2021-12-13 12:18:30',1,0,4,6),('학과','yun010207','응용 학과 텟1','ㄹㄴㅇㅁㄹㄴㅁ','2021-12-13 12:26:27',2,0,4,7),('학과','okm9874','창의 소프트 텟1','ㄴㅇㅁㄹㄴㅁㄹ ㄴㅇㄹㄴㅁㄹ','2021-12-13 12:29:22',1,0,4,8),('학과','yun010207','응용학과 텟3','ㄴㅁㅇㄴㅁㄹ','2021-12-13 12:33:47',0,0,4,9),('학과','okm9874','창의 텟 2','ㄴㅁㅇㄹㄴㅁㄹㅇ','2021-12-13 12:33:58',1,0,4,10);
+INSERT INTO `board` VALUES ('도움','yun010207','도움1-1','테스트\r\n\r\n\r\n테스트     테스트 여러번 띄움\r\n\r\n\r\n','2021-12-12 19:18:35',348,0,19,0),('도움','okm9874','테스트 2','ㅈㄷㄱㄷㅈ\r\n\r\n\r\nㅈㄷㅇㄹㅈ       ㅈ\r\n','2021-12-12 19:22:41',347,0,18,1),('도움','yun010207','테스트 3 도움','ㅇㄴㄹ ㄴ\r\n\r\n\r\n\r\nㅇㅇㅇㅇ      \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nㅇㅇㄴㄹㄴ       ㄴㄴ','2021-12-13 04:28:07',105,0,7,2),('팀플','yun010207','팀플 테스트1','ㄴㅁㅇㄹㄴㅁㅇㄹ','2021-12-13 08:49:06',60,0,6,3),('설문','okm9874','설문 테스트1','ㄴ ㄴㅇㄴ       ㄴㅇㄹㄴㅁ','2021-12-13 11:39:40',6,0,6,4),('택시','yun010207','택시 합승 게시판 테스트1','ㄷㄷㄷㄷ\r\n\r\n\r\nㄷㄷㄷㄷ\r\n\r\n\r\nㄷ    ㄷ\r\n','2021-12-13 12:10:40',1,0,6,5),('학과','yun010207','학과 테스트1','ㅈㄱㄷㅈ','2021-12-13 12:18:30',1,0,6,6),('학과','yun010207','응용 학과 텟1','ㄹㄴㅇㅁㄹㄴㅁ','2021-12-13 12:26:27',2,0,6,7),('학과','okm9874','창의 소프트 텟1','ㄴㅇㅁㄹㄴㅁㄹ ㄴㅇㄹㄴㅁㄹ','2021-12-13 12:29:22',1,0,6,8),('학과','yun010207','응용학과 텟3','ㄴㅁㅇㄴㅁㄹ','2021-12-13 12:33:47',0,0,6,9),('학과','okm9874','창의 텟 2','ㄴㅁㅇㄹㄴㅁㄹㅇ','2021-12-13 12:33:58',1,0,6,10),('택시','yun010207','동의대역 택시 탈 분 모집합니더,','너만 오면 고','2021-12-15 06:01:14',6,0,2,11);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `bookmark` (
 
 LOCK TABLES `bookmark` WRITE;
 /*!40000 ALTER TABLE `bookmark` DISABLE KEYS */;
-INSERT INTO `bookmark` VALUES ('yun010207',3),('yun010207',2);
+INSERT INTO `bookmark` VALUES ('yun010207',3),('yun010207',2),('yun010207',11);
 /*!40000 ALTER TABLE `bookmark` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,8 +93,34 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES ('2021-12-12 20:06:14','ㅅㄷㅌㅅ',0,3,0,'okm9874'),('2021-12-12 20:06:19','text2',0,1,1,'okm9874'),('2021-12-12 20:06:23','tewt3',0,2,2,'okm9874'),('2021-12-12 20:06:32','test1',1,0,3,'okm9874'),('2021-12-12 20:06:46','tese4',1,0,4,'yun010207'),('2021-12-12 20:08:27','test3',1,0,5,'yun010207'),('2021-12-12 20:29:17','test45',1,0,6,'yun010207'),('2021-12-13 08:27:55','text1',2,0,7,'yun010207'),('2021-12-13 13:14:37','안녕하세용',3,0,8,'yun010207'),('2021-12-13 13:17:41','가나다',3,0,9,'yun010207');
+INSERT INTO `comment` VALUES ('2021-12-12 20:06:14','ㅅㄷㅌㅅ',0,3,0,'okm9874'),('2021-12-12 20:06:19','text2',0,1,1,'okm9874'),('2021-12-12 20:06:23','tewt3',0,2,2,'okm9874'),('2021-12-12 20:06:32','test1',1,0,3,'okm9874'),('2021-12-12 20:06:46','tese4',1,0,4,'yun010207'),('2021-12-12 20:08:27','test3',1,0,5,'yun010207'),('2021-12-12 20:29:17','test45',1,0,6,'yun010207'),('2021-12-13 08:27:55','text1',2,0,7,'yun010207'),('2021-12-13 13:14:37','안녕하세용',3,0,8,'yun010207'),('2021-12-13 13:17:41','가나다',3,0,9,'yun010207'),('2021-12-15 06:01:32','저 타고 싶습니다!',11,0,10,'yun010207'),('2021-12-15 09:20:39','asgsafdsasdafsadf',0,0,11,'yun010207');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `history`
+--
+
+DROP TABLE IF EXISTS `history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `history` (
+  `student_id` int(11) NOT NULL,
+  `viewboardnum` int(11) DEFAULT NULL,
+  `writeboardnum` int(11) DEFAULT NULL,
+  `writecommentnum` int(11) DEFAULT NULL,
+  `bookmarkboardnum` int(11) DEFAULT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `history`
+--
+
+LOCK TABLES `history` WRITE;
+/*!40000 ALTER TABLE `history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `history` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -146,7 +172,7 @@ CREATE TABLE `recentview` (
 
 LOCK TABLES `recentview` WRITE;
 /*!40000 ALTER TABLE `recentview` DISABLE KEYS */;
-INSERT INTO `recentview` VALUES ('yun010207','2021-12-13 09:09:58',0),('okm9874','2021-12-13 10:58:16',2),('okm9874','2021-12-13 10:58:20',0),('okm9874','2021-12-13 10:58:25',3),('okm9874','2021-12-13 11:05:17',4),('okm9874','2021-12-13 11:05:18',1),('yun010207','2021-12-13 11:05:27',2),('yun010207','2021-12-13 11:05:37',1),('','2021-12-13 11:05:59',2),('yun010207','2021-12-13 11:10:41',5),('yun010207','2021-12-13 11:18:32',6),('okm9874','2021-12-13 11:33:54',8),('okm9874','2021-12-13 11:34:00',10),('yun010207','2021-12-13 12:20:31',3),('yun010207','2021-12-13 12:20:33',7),('yun010207','2021-12-13 12:20:36',4);
+INSERT INTO `recentview` VALUES ('okm9874','2021-12-13 10:58:16',2),('okm9874','2021-12-13 10:58:25',3),('okm9874','2021-12-13 11:05:17',4),('okm9874','2021-12-13 11:05:18',1),('','2021-12-13 11:05:59',2),('yun010207','2021-12-13 11:10:41',5),('yun010207','2021-12-13 11:18:32',6),('okm9874','2021-12-13 11:33:54',8),('okm9874','2021-12-13 11:34:00',10),('yun010207','2021-12-13 12:20:33',7),('yun010207','2021-12-13 12:20:36',4),('yun010207','2021-12-15 05:01:40',11),('yun010207','2021-12-15 08:16:15',3),('okm9874','2021-12-15 08:17:09',0),('yun010207','2021-12-15 08:23:58',2),('yun010207','2021-12-15 08:27:16',1),('yun010207','2021-12-15 08:39:46',0);
 /*!40000 ALTER TABLE `recentview` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +196,7 @@ CREATE TABLE `recommend` (
 
 LOCK TABLES `recommend` WRITE;
 /*!40000 ALTER TABLE `recommend` DISABLE KEYS */;
-INSERT INTO `recommend` VALUES ('yun010207','board',1),('yun010207','comment',0),('yun010207','comment',0),('yun010207','comment',0),('yun010207','board',2),('okm9874','board',2),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',2),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',1),('okm9874','comment',5),('okm9874','comment',3),('okm9874','comment',6),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('yun010207','board',0),('yun010207','comment',4),('yun010207','comment',7),('yun010207','comment',9);
+INSERT INTO `recommend` VALUES ('yun010207','board',1),('yun010207','comment',0),('yun010207','comment',0),('yun010207','comment',0),('yun010207','board',2),('okm9874','board',2),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',2),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',1),('okm9874','comment',5),('okm9874','comment',3),('okm9874','comment',6),('okm9874','comment',0),('okm9874','comment',0),('okm9874','comment',0),('yun010207','board',0),('yun010207','comment',4),('yun010207','comment',7),('yun010207','comment',9),('yun010207','comment',10),('yun010207','comment',6);
 /*!40000 ALTER TABLE `recommend` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,11 +209,12 @@ DROP TABLE IF EXISTS `reply`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reply` (
   `replydate` datetime DEFAULT NULL,
-  `commentnum` int(11) NOT NULL,
+  `content` varchar(300) DEFAULT NULL,
+  `commentnum` int(11) DEFAULT NULL,
   `recommend` int(11) DEFAULT NULL,
-  `replynum` int(11) DEFAULT NULL,
+  `replynum` int(11) NOT NULL,
   `writer` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`commentnum`)
+  PRIMARY KEY (`replynum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -197,6 +224,7 @@ CREATE TABLE `reply` (
 
 LOCK TABLES `reply` WRITE;
 /*!40000 ALTER TABLE `reply` DISABLE KEYS */;
+INSERT INTO `reply` VALUES ('2021-12-15 09:35:02','ㅎㄴㅁㅎㄴㅁㅇㄹㄴㅁㅇㄹ',2,0,0,'yun010207'),('2021-12-15 09:35:05','ㅁㄶㄴㅁㅇㄹㄴㅁㅇㄹㄴㅁㅇㄹ',2,0,1,'yun010207'),('2021-12-15 09:35:11','ㄴㅁㅇㅎㄴㅁㅎㄴㄻㅇ',0,0,2,'yun010207');
 /*!40000 ALTER TABLE `reply` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -209,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-14 13:05:06
+-- Dump completed on 2021-12-15 17:41:01

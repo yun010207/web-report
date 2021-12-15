@@ -40,6 +40,9 @@
 		#bmk {
 			display: inline;
 		}
+		#reply {
+			display: inline;
+		}
 	</style>
 	<!--세로 광고 블럭-->
 	<style>
@@ -62,6 +65,7 @@
 			if (isset($_GET['num'])) {
 				$num = $_GET['num'];
 				$_SESSION['boardnum'] = $num;
+				$_SESSION['rpindex'] = -1;
 			}
 			else {
 				$num = $_SESSION['boardnum'];
@@ -135,7 +139,7 @@
 				$result_c = mysqli_query($connect, $sql_c);
 				$comnum = mysqli_num_rows($result_c);
 
-				
+
 
 				for($i = 0; $i < $comnum; $i++) {
 					$row_c = mysqli_fetch_array($result_c);
@@ -145,8 +149,6 @@
 					$row_d = mysqli_fetch_array($result_d);
 
 					echo $row_d['depart'];
-					echo "|댓글 : ";
-					echo $row_c['content'];
 					echo "&nbsp&nbsp|&nbsp&nbsp 추천수 : ";
 					$comennum = $row_c['commentnum'];
 					$sql_r = "select * from recommend where kind='comment' and number='$comennum'";
@@ -163,7 +165,74 @@
 					echo '">';
 					echo '<input type="hidden" name="kind" value="comment">';
 					echo "</form>";
-					echo "<hr>";
+					echo "&nbsp&nbsp|&nbsp&nbsp";
+					if ($i != $_SESSION['rpindex']) {
+					echo "<form method='post' action='대댓글 창.php' id='reply'>";
+					echo '<input type="submit" value="대댓글 작성">';
+					echo '<input type="hidden" name="rpindex" value="';
+					echo $i;
+					echo '">';
+					echo "</form>";
+					echo "<br>";
+					echo "내용 : ";
+					echo $row_c['content'];
+					echo '<hr>';
+					}
+					else {
+					echo "<br>";
+					echo "내용 : ";
+					echo $row_c['content'];
+					echo '<hr>';
+						echo "<form method='post' action='대댓글 창.php' id='reply'>";
+						echo '<input type="submit" value="작성 창 닫기">';
+						echo '<input type="hidden" name="rpindex" value="';
+						echo -1;
+						echo '">';
+						echo "</form>";
+						?>
+						<fieldset id="memocol">
+							<form action="대댓글 저장.php" method="post">대댓글 작성<textarea type="memo" name="content" rows=3 cols=100></textarea>
+								<input type="submit" value="확인">
+								<input type="hidden" name="rpnum" value="
+								<?php echo $comennum; ?>
+								">
+							</form>
+						</fieldset>
+						<?php
+					}
+					$sql_c_rpy = "select * from reply where commentnum = '$comennum' order by replynum desc";
+					$result_c_rpy = mysqli_query($connect, $sql_c_rpy);
+					$rpynum = mysqli_num_rows($result_c_rpy);
+					for ($j = 0; $j < $rpynum; $j++) {
+						echo '&nbsp&nbsp↘&nbsp&nbsp';
+						$row_c_rpy = mysqli_fetch_array($result_c_rpy);
+						$id_rpy = $row_c_rpy['writer'];
+						$sql_d = "select * from member_tbl inner join reply on member_tbl.id = reply.writer where reply.writer = '$id_rpy'";
+						$result_d = mysqli_query($connect, $sql_d);
+						$row_d = mysqli_fetch_array($result_d);
+
+						echo $row_d['depart'];
+						echo "&nbsp&nbsp|&nbsp&nbsp 추천수 : ";
+						$replynum = $row_c_rpy['replynum'];
+						$sql_r = "select * from recommend where kind='reply' and number='$replynum'";
+						$result_r = mysqli_query($connect, $sql_r);
+						$recnum = mysqli_num_rows($result_r);
+						echo $recnum;
+						echo "&nbsp&nbsp|&nbsp&nbsp 작성일시 : ";
+						echo $row_c_rpy['replydate'];
+						echo "&nbsp&nbsp|&nbsp&nbsp";
+						echo "<form method='post' action='추천.php' id='rec'>";
+						echo "<input type='submit' name='recommend' value='추천'>";
+						echo '<input type="hidden" name="cr_num" value="';
+						echo $row_c_rpy['replynum'];
+						echo '">';
+						echo '<input type="hidden" name="kind" value="reply">';
+						echo "</form>";
+						echo "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+						echo "내용 : ";
+						echo $row_c_rpy['content'];
+						echo "<hr>";
+					}
 				}
 			?>
 		</div>
