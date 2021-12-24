@@ -39,7 +39,21 @@
 		}
 	}
 	else if ($kind == 'reply') {
+		
+		$cr_num = $_POST['cr_num'];
+		$sql .= "'$cr_num'";
+		$result = mysqli_query($connect, $sql) or die("mysql쿼리 에러");
+		$recrow = mysqli_num_rows($result);
+		if ($recrow >= 1) {
+			echo "<script>alert('추천은 한 번만 가능합니다.');</script>";
+		}
+		else {
 
+			$sql = "update reply set recommend = recommend + 1 where kind = '$kind' and number = '$cr_num'";
+			$result = mysqli_query($connect, $sql);
+			$sql = "insert into recommend values('$id', '$kind', '$cr_num')";
+			$result = mysqli_query($connect, $sql);
+		}
 	}
 
 	echo "<script>location.href='보드.php'</script>";

@@ -36,7 +36,7 @@
 				$dprow = mysqli_fetch_array($dpresult);
 				$depart = $dprow['depart'];
 
-				$sql = "select * from board where kind = '$kind' order by number desc";
+				$sql = "select * from board where kind = '$kind' order by boarddate desc";
 				$result = mysqli_query($connect, $sql);
 				$num = mysqli_num_rows($result);
 				for($i = 0; $i < $num; $i++) {
@@ -57,7 +57,7 @@
 				}
 			}
 			else {
-				$sql = "select * from board where kind = '$kind' order by number desc";
+				$sql = "select * from board where kind = '$kind' order by boarddate desc";
 				$result = mysqli_query($connect, $sql);
 				$num = mysqli_num_rows($result);
 				for($i = 0; $i < $num; $i++) {

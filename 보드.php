@@ -34,13 +34,7 @@
 		#memocol {
 			background: rgb(255, 230, 204);
 		}
-		#rec {
-			display: inline;
-		}
-		#bmk {
-			display: inline;
-		}
-		#reply {
+		#center form {
 			display: inline;
 		}
 	</style>
@@ -76,7 +70,7 @@
 			$cnum = $row['comment'];
 			echo "제목 : ";
 			echo $row['title'];
-			echo "&nbsp&nbsp|&nbsp&nbsp조회수 : ";
+			echo "<br>조회수 : ";
 			echo $row['view'];
 			$sql_r = "select * from recommend where kind='board' and number='$num'";
 			$result_r = mysqli_query($connect, $sql_r);
@@ -105,8 +99,15 @@
 			echo "<input type='submit' name='recommend' value='즐겨찾기 등록'>";
 			echo "<input type='hidden' name='num' value='$num'>";
 			echo "</form>";
+			if ($row['writer'] == $_SESSION['username']) {
+				echo "&nbsp&nbsp|&nbsp&nbsp";
+				echo "<form action='글 삭제.php' method='post' id='dlt'>";
+				echo "<input type='submit' value='삭제'>";
+				echo "</form>";
+			}
+
 			echo "<hr>";
-			echo nl2br($row['content']);
+			echo nl2br(str_replace(' ', '&nbsp', $row['content']));
 			$sql = "update board set view = view + 1 where number = '$num'";
 			$result = mysqli_query($connect, $sql);
 
@@ -175,13 +176,13 @@
 					echo "</form>";
 					echo "<br>";
 					echo "내용 : ";
-					echo $row_c['content'];
+					echo nl2br(str_replace(' ', '&nbsp', $row_c['content']));
 					echo '<hr>';
 					}
 					else {
 					echo "<br>";
 					echo "내용 : ";
-					echo $row_c['content'];
+					echo nl2br(str_replace(' ', '&nbsp', $row_c['content']));
 					echo '<hr>';
 						echo "<form method='post' action='대댓글 창.php' id='reply'>";
 						echo '<input type="submit" value="작성 창 닫기">';
@@ -200,7 +201,7 @@
 						</fieldset>
 						<?php
 					}
-					$sql_c_rpy = "select * from reply where commentnum = '$comennum' order by replynum desc";
+					$sql_c_rpy = "select * from reply where commentnum = '$comennum' order by replynum";
 					$result_c_rpy = mysqli_query($connect, $sql_c_rpy);
 					$rpynum = mysqli_num_rows($result_c_rpy);
 					for ($j = 0; $j < $rpynum; $j++) {
@@ -230,7 +231,7 @@
 						echo "</form>";
 						echo "<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 						echo "내용 : ";
-						echo $row_c_rpy['content'];
+						echo nl2br(str_replace(' ', '&nbsp', $row_c_rpy['content']));
 						echo "<hr>";
 					}
 				}

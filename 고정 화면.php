@@ -66,8 +66,8 @@
 <body>
 	<div id="search"><!--검색 칸-->
 		<a href='동의대 구인 사이트.php'>동의대 구인 사이트 홈</a>
-		<form class="search-form">
-            <input type="search" size="150" class="input-search" />
+		<form class="search-form" action="검색 게시판.php" method="post">
+            <input type="search" size="150" class="input-search" name="search"/>
             <input type="submit" class="input-search-submit" value="검색"/>
 		</form>
 	</div>

@@ -32,7 +32,7 @@
 	</style>
 	<!--메인 블럭-->
 	<style>
-		.board a {
+		a {
 			text-decoration: none;
 			color: #026a5d;
 		}
@@ -99,7 +99,27 @@
 	</div>
 	<div id="center">
 		<div class="notice">
-			공지
+			<?php 
+				if(isset($_SESSION['username'])) {
+				echo "<div id='bhead'><b><a href='공지 변경.php'>공지 </a></b>";
+					$enter = '보드.php';
+				}
+				else {
+				echo "<div id='bhead'><b><a href='로그인 화면.php'>공지 </a></b>";
+					$enter = '로그인 화면.php';
+				}
+				$sql = "select * from board where kind = '공지' order by boarddate desc";
+				$result = mysqli_query($connect, $sql);
+				if (mysqli_num_rows($result) > 0){
+					$row = mysqli_fetch_array($result);
+					echo "<a href='$enter?num=";
+					echo $row['number'];
+					echo "'>";
+					echo $row['title'];
+					echo "</a>";
+				}
+				echo "</div>";
+			?>
 		</div>
 		<div class="board" name="help-board">
 			<?php 
@@ -111,10 +131,10 @@
 				echo "<div id='bhead'><b><a href='로그인 화면.php'>도움 요청 게시판</a></b></div><hr>";
 					$enter = '로그인 화면.php';
 				}
-				$sql = "select * from board where kind = '도움' order by number desc";
+				$sql = "select * from board where kind = '도움' order by boarddate desc";
 				$result = mysqli_query($connect, $sql);
 				$num = mysqli_num_rows($result);
-				for($i = 0; $i < $num; $i++) {
+				for($i = 0; $i < $num && $i < 17; $i++) {
 					$row = mysqli_fetch_array($result);
 					echo "<a href='$enter?num=";
 					echo $row['number'];
@@ -139,10 +159,10 @@
 				echo "<div id='bhead'><b><a href='로그인 화면.php'>팀플 모집 게시판</a></b></div><hr>";
 					$enter = '로그인 화면.php';
 				}
-				$sql = "select * from board where kind = '팀플' order by number desc";
+				$sql = "select * from board where kind = '팀플' order by boarddate desc";
 				$result = mysqli_query($connect, $sql);
 				$num = mysqli_num_rows($result);
-				for($i = 0; $i < $num; $i++) {
+				for($i = 0; $i < $num && $i < 17; $i++) {
 					$row = mysqli_fetch_array($result);
 					echo "<a href='$enter?num=";
 					echo $row['number'];
@@ -167,10 +187,10 @@
 				echo "<div id='bhead'><b><a href='로그인 화면.php'>택시 합승 게시판</a></b></div><hr>";
 					$enter = '로그인 화면.php';
 				}
-				$sql = "select * from board where kind = '택시' order by number desc";
+				$sql = "select * from board where kind = '택시' order by boarddate desc";
 				$result = mysqli_query($connect, $sql);
 				$num = mysqli_num_rows($result);
-				for($i = 0; $i < $num; $i++) {
+				for($i = 0; $i < $num && $i < 17; $i++) {
 					$row = mysqli_fetch_array($result);
 					echo "<a href='$enter?num=";
 					echo $row['number'];
@@ -196,10 +216,10 @@
 					$enter = '로그인 화면.php';
 				}
 
-				$sql = "select * from board where kind = '설문' order by number desc";
+				$sql = "select * from board where kind = '설문' order by boarddate desc";
 				$result = mysqli_query($connect, $sql);
 				$num = mysqli_num_rows($result);
-				for($i = 0; $i < $num; $i++) {
+				for($i = 0; $i < $num && $i < 17; $i++) {
 					$row = mysqli_fetch_array($result);
 					echo "<a href='$enter?num=";
 					echo $row['number'];
